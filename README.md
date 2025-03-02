@@ -12,8 +12,8 @@ This is a simple project demonstrating how to containerize a **Flask application
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/Abhishek-2502/Full_Docker_Flow_Dummy_Project
+cd Full_Docker_Flow_Dummy_Project
 ```
 
 ### 2️⃣ Run the Project
