@@ -6,7 +6,13 @@ WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Keep the container running (useful for development)
-CMD ["tail", "-f", "/dev/null"]
+# Copy the rest of the application code
+COPY . .
+
+# Expose Flask port
+EXPOSE 5000
+
+# Run Flask (for Windows, specify host 0.0.0.0)
+CMD ["python", "src/app.py"]
