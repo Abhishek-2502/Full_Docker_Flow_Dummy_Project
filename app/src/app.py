@@ -2,7 +2,8 @@ from flask import Flask, render_template
 import psycopg2
 import os
 
-app = Flask(__name__)
+# Correct path for templates folder
+app = Flask(__name__, template_folder="templates")
 
 # Get database URL from environment variable
 DATABASE_URL = os.getenv("DATABASE_URL")

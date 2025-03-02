@@ -4,15 +4,15 @@ FROM python:3.9
 # Set working directory inside the container
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
+# Copy dependencies first to leverage Docker cache
+COPY app/requirements.txt .  
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
-COPY . .
+COPY app /app 
 
 # Expose Flask port
 EXPOSE 5000
 
-# Run Flask (for Windows, specify host 0.0.0.0)
-CMD ["python", "src/app.py"]
+# Run Flask app (correct path to app.py)
+CMD ["python", "/app/src/app.py"]

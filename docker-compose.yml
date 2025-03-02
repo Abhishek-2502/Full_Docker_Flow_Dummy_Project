@@ -1,10 +1,11 @@
-version: '3'
+version: '3.8'
+
 services:
   app:
     container_name: my_flask_app
     build: .
     volumes:
-      - .:/app  # Syncs code between local and container
+      - ./app:/app  # Mount only the app folder to avoid dependency conflicts
     ports:
       - "5000:5000"
     environment:
